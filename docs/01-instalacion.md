@@ -61,7 +61,7 @@ Se agregaron los siguientes scripts para facilitar el desarrollo:
 Se creó la carpeta `src/` y dentro de ella el archivo `app.ts` con un mensaje de prueba:
 
 ```typescript
-console.log("Hello, Node.js with TypeScript!");
+console.log('Hello, Node.js with TypeScript!')
 ```
 
 ## ✅ Prueba del Proyecto

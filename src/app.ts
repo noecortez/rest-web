@@ -5,7 +5,13 @@ const PORT = 8080
 const server = http.createServer((request, response) => {
   console.log('🚀 ~ server ~ request.url:', request.url)
 
-  response.write('Welcome to the App Rest Server!')
+  response.writeHead(200, { 'Content-Type': 'text/html' })
+  response.write(`
+    <h1>
+        Welcome to path:
+        <code style="color: gray;">${request.url}</code>
+    </h1>
+  `)
   response.end()
 })
 

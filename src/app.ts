@@ -5,14 +5,9 @@ const PORT = 8080
 const server = http.createServer((request, response) => {
   console.log('🚀 ~ server ~ request.url:', request.url)
 
-  response.writeHead(200, { 'Content-Type': 'text/html' })
-  response.write(`
-    <h1>
-        Welcome to path:
-        <code style="color: gray;">${request.url}</code>
-    </h1>
-  `)
-  response.end()
+  const data = { name: 'John Doe', age: 30, city: 'New York' }
+  response.writeHead(200, { 'Content-Type': 'application/json' })
+  response.end(JSON.stringify(data))
 })
 
 server.listen(PORT, () => {

@@ -1,12 +1,9 @@
 import { readFileSync } from 'fs'
-import http2, { Http2ServerRequest, Http2ServerResponse } from 'http2'
+import http from 'http'
 
 const PORT = 8080
 
-const handleHttpRequest = (
-  request: Http2ServerRequest,
-  response: Http2ServerResponse
-) => {
+const server = http.createServer((request, response) => {
   console.log('🚀 ~ server ~ request.url:', request.url)
 
   if (request.url === '/') {
@@ -23,23 +20,9 @@ const handleHttpRequest = (
     response.writeHead(200, { 'Content-Type': 'text/css' })
   }
 
-  try {
-    const responseContent = readFileSync(`./public${request.url}`, 'utf-8')
-    response.end(responseContent)
-  } catch (error) {
-    console.error(error)
-    response.writeHead(404, { 'Content-Type': 'text/html' })
-    response.end('<h1>404 Not Found</h1>')
-  }
-}
-
-const server = http2.createSecureServer(
-  {
-    key: readFileSync('./keys/server.key'),
-    cert: readFileSync('./keys/server.crt'),
-  },
-  handleHttpRequest
-)
+  const responseContent = readFileSync(`./public${request.url}`, 'utf-8')
+  response.end(responseContent)
+})
 
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`)

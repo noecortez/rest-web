@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/noecortez/rest-web/compare/v1.3.0...v1.4.0) (2025-03-03)
+
+
+### Features
+
+* **server:** implement express server with user management routes and services ([5a1e481](https://github.com/noecortez/rest-web/commit/5a1e4818d137782d9797dafd95af1b5265adf4d3))
+
 ## [1.3.0](https://github.com/noecortez/rest-web/compare/v1.2.0...v1.3.0) (2025-03-02)
 
 
